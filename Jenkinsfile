@@ -20,6 +20,15 @@ agent any
          sh "mvn clean install package"
        }
     }
+	  
+	 stage('Upload_to_S3') {
+		steps {
+            withAWS(region:'us-west-2',credentials:'S3UploadCredentitals') {
+             s3Upload(bucket: 's2-artifact-naveem', workingDir:'.');
+            }
+		}	
+            
+          }  
     stage('Build Docker Image') {
       steps {
         sh 'echo Docker'
