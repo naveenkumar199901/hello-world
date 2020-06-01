@@ -1,9 +1,5 @@
 pipeline {
-environment {
-    registry = "naveenkumar199910/test"
-    registryCredential = ‘Docker-hub’
-}
-   agent any
+agent any
    tools {
     maven 'M2_HOME'
   }
@@ -25,19 +21,17 @@ environment {
        }
     }
 
-  stage('Building image') {
-      steps{
-        script {
-          docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
+ 
     stage('Test') {
       steps {
         sh 'echo test'
       }
     }
-   
+     stage('Deployee') {
+      steps {
+        sh 'echo Deployee'
+      }
+    }
 	
     
 	}	  
