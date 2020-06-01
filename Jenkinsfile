@@ -40,6 +40,16 @@ agent any
     
 	}	  
 		  
+post {
+			always {
+				 echo 'This will always run'  
+				 
+				emailext body: 'Please find', subject: 'Build And Deployment', to: 'naveenkumar199901@gmail.com'
+            
+			}
+	    
+		  
+	}
 
  
 
