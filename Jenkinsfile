@@ -21,6 +21,15 @@ pipeline {
          sh "mvn clean install package"
        }
     }
+	   stage('Building image') {
+      steps{
+        script {
+          sh "docker build . -f Dockerfile -t fimsappimage"
+		  sh "docker save fimsappimage -o fimsappimage.img"
+        }
+      }
+    }
+
     stage('Test') {
       steps {
         sh 'echo test'
