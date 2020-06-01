@@ -20,7 +20,11 @@ agent any
          sh "mvn clean install package"
        }
     }
-
+    stage('Build Docker Image') {
+      steps {
+        sh 'echo Docker'
+      }
+    }
  
     stage('Test') {
       steps {
