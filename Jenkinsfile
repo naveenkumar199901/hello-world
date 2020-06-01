@@ -1,7 +1,9 @@
 pipeline {
-
- def app
-  agent any
+environment {
+    registry = "naveenkumar199910/test"
+    registryCredential = ‘Docker-hub’
+}
+   agent any
    tools {
     maven 'M2_HOME'
   }
@@ -22,13 +24,14 @@ pipeline {
          sh "mvn clean install package"
        }
     }
-stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
 
-        app = docker.build("getintodevops/hellonode")
+  stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
     }
-
     stage('Test') {
       steps {
         sh 'echo test'
