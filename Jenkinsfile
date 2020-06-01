@@ -1,5 +1,6 @@
 pipeline {
 
+ def app
   agent any
    tools {
     maven 'M2_HOME'
