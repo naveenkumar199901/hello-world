@@ -21,13 +21,11 @@ pipeline {
          sh "mvn clean install package"
        }
     }
-	   stage('Building image') {
-      steps{
-        script {
-          sh "docker build . -f Dockerfile -t fimsappimage"
-		  sh "docker save fimsappimage -o fimsappimage.img"
-        }
-      }
+stage('Build image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+
+        app = docker.build("getintodevops/hellonode")
     }
 
     stage('Test') {
