@@ -20,16 +20,7 @@ agent any
        steps {
          sh "mvn clean install package"
        }
-      input{
-		message "Press Process(OK) to continue"
-		submitter "user1,user2"
-		parameters {
-			string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
-		}
-	}
-       	steps { 
-		echo "User: ${username} said Ok."
-	}
+    
     }
 	  
 	 //stage('Upload_to_S3') {
