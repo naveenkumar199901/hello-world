@@ -2,7 +2,7 @@
 From tomcat:latest
 
 # Maintainer
-COPY hello-worls/target/webapp.war /usr/local/tomcat/webapps
+COPY hello-world/target/webapp.war /usr/local/tomcat/webapps
 CMD ["catalina.sh","run"]
 
 # copy war file on to container 
