@@ -33,6 +33,7 @@ agent any
         //  }  
     stage('Build Docker Image') {
       steps {
+       sh "docker version"
        sh "docker build -t naveenkumar199901/simple-devops-image:latest -f Dockerfile ."
        sh "docker run -p 8085:8080 -d naveenkumar199901/simple-devops-image:latest"
       }
