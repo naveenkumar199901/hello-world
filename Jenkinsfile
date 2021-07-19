@@ -31,13 +31,13 @@ agent any
 	//	}	
             
         //  }  
-    stage('Build Docker Image') {
-      steps {
-       sh "docker version"
-       sh "docker build -t 909926305475.dkr.ecr.us-west-2.amazonaws.com/devopstestbootbe:latest -f Dockerfile ."
-       sh "docker push 909926305475.dkr.ecr.us-west-2.amazonaws.com/devopstestbootbe:latest"
-      }
-    }
+   // stage('Build Docker Image') {
+    //  steps {
+    //   sh "docker version"
+//sh "docker build -t 909926305475.dkr.ecr.us-west-2.amazonaws.com/devopstestbootbe:latest -f Dockerfile ."
+     //  sh "docker push 909926305475.dkr.ecr.us-west-2.amazonaws.com/devopstestbootbe:latest"
+     // }
+  //  }
  
     stage('Test') {
       steps {
